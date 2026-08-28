@@ -47,8 +47,9 @@
   --pill: #e2eeea;
   --rule: #e4e7e4;
   --card-shadow: 0 6px 18px rgba(14, 110, 98, 0.08);
-  --scrim-a: rgba(250, 252, 251, 0.72);
-  --scrim-b: rgba(250, 252, 251, 0.90);
+  --scrim-0: rgba(250, 252, 251, 0.28);
+  --scrim-a: rgba(250, 252, 251, 0.74);
+  --scrim-b: rgba(250, 252, 251, 0.93);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -60,8 +61,9 @@
     --pill: #1d312c;
     --rule: #293029;
     --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-    --scrim-a: rgba(20, 24, 23, 0.72);
-    --scrim-b: rgba(20, 24, 23, 0.90);
+    --scrim-0: rgba(20, 24, 23, 0.42);
+    --scrim-a: rgba(20, 24, 23, 0.78);
+    --scrim-b: rgba(20, 24, 23, 0.93);
   }
 }
 * { box-sizing: border-box; }
@@ -82,8 +84,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
 section { scroll-margin-top: 1.5rem; }
 
-.band { position: relative; background: url("img/grass-building.jpg") center 30% / cover no-repeat; padding: 4.2rem 0 0; }
-.band::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--scrim-a) 0%, var(--scrim-b) 55%, var(--bg) 96%); }
+.band { position: relative; background: url("img/grass-building.jpg") center 22% / cover no-repeat; padding: 7.5rem 0 0; }
+.band::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--scrim-0) 0%, var(--scrim-a) 30%, var(--scrim-b) 58%, var(--bg) 97%); }
 .band .wrap { position: relative; }
 .kicker { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 1rem; }
 .mark { color: var(--link); display: block; margin-bottom: 0.9rem; }
@@ -94,11 +96,6 @@ h1 { font-size: 2.35rem; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 
 nav a { color: var(--muted); }
 nav a:hover { color: var(--link); }
 nav .sep { margin: 0 0.35rem; }
-
-figure { margin: 0; }
-.photo { margin-top: 2.2rem; }
-.photo img { width: 100%; display: block; border-radius: 12px; border: 1px solid var(--rule); }
-.photo figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 0.55rem; }
 
 h2 { font-size: 1.35rem; font-weight: 600; margin: 0 0 1.1rem; padding-top: 2.2rem; }
 h2::after { content: ""; display: block; width: 2.4rem; height: 2px; background: var(--link); margin-top: 0.5rem; border-radius: 2px; }
@@ -132,6 +129,7 @@ footer { margin-top: 3.5rem; padding: 1rem 0 3rem; border-top: 1px solid var(--r
 @media (max-width: 640px) {
   body { font-size: 16px; }
   h1 { font-size: 1.9rem; }
+  .band { padding-top: 4.5rem; }
   .cards, .rcards { grid-template-columns: 1fr; }
   .cols { columns: 1; }
 }
@@ -320,9 +318,6 @@ footer { margin-top: 3.5rem; padding: 1rem 0 3rem; border-top: 1px solid var(--r
   <p>Department of Computer Science and Artificial Intelligence, Room 213<br>
   Building 503, Bar-Ilan University<br>
   Ramat Gan, Israel &nbsp;<span class="sans" style="font-size:0.85rem"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Bar-Ilan+University+Building+503+Ramat+Gan">directions</a></span></p>
-  <figure class="photo" style="margin-top:1.4rem">
-    <img src="img/grass-courtyard.jpg" alt="The courtyard of the Alexander Grass Computer Science Building" width="1240" height="1074" loading="lazy">
-  </figure>
 </section>
 
 <footer>
