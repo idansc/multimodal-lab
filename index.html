@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Idan Schwartz">
+<meta name="description" content="The Multimodal Lab at Bar-Ilan University, led by Idan Schwartz. Multimodal generative models, attention, and inference-time control.">
+<title>The Multimodal Lab</title>
+
+<link rel="canonical" href="https://idansc.github.io/multimodal-lab/">
+<link rel="icon" type="image/png" href="img/icon.png">
+<link rel="apple-touch-icon" type="image/png" href="img/icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Multimodal Lab, Bar-Ilan University">
+<meta property="og:description" content="Multimodal generative models, attention, and inference-time control. Led by Idan Schwartz.">
+<meta property="og:url" content="https://idansc.github.io/multimodal-lab/">
+<meta property="og:image" content="https://idansc.github.io/multimodal-lab/img/idan.jpg">
+<meta property="twitter:card" content="summary">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchOrganization",
+  "name": "The Multimodal Lab",
+  "url": "https://idansc.github.io/multimodal-lab/",
+  "parentOrganization": { "@type": "CollegeOrUniversity", "name": "Bar-Ilan University" },
+  "founder": { "@type": "Person", "name": "Idan Schwartz", "url": "https://idansc.github.io/" }
+}
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0G7KF9T2ZC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0G7KF9T2ZC');
+</script>
+
+<style>
+:root {
+  --bg: #fcfcfa;
+  --text: #1d1f21;
+  --muted: #676e78;
+  --link: #17508f;
+  --rule: #e7e4de;
+  --thumb-border: #ddd9d2;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181b;
+    --text: #d8d9db;
+    --muted: #969ea8;
+    --link: #85aede;
+    --rule: #2b2e33;
+    --thumb-border: #33373d;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.62 Charter, "Iowan Old Style", Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.wrap { max-width: 46rem; margin: 0 auto; padding: 3.2rem 1.4rem 4rem; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+
+.kicker { font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.6rem; }
+h1 { font-size: 2.15rem; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 0.5rem; }
+.lead { font-size: 1.05rem; margin: 0; }
+.lead .muted { color: var(--muted); }
+
+nav { margin-top: 1.9rem; padding-top: 0.9rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+nav a { color: var(--muted); }
+nav a:hover { color: var(--link); }
+nav .sep { margin: 0 0.35rem; }
+
+section { margin-top: 2.4rem; }
+h2 { font-size: 1.32rem; font-weight: 600; margin: 0 0 1rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+h3 { font-size: 1.02rem; font-weight: 600; margin: 1.5rem 0 0.55rem; }
+p { margin: 0 0 0.9rem; }
+.muted { color: var(--muted); }
+
+.themes { margin: 0; padding-left: 1.1rem; }
+.themes li { margin-bottom: 0.35rem; }
+
+.pi { display: flex; gap: 1.15rem; align-items: flex-start; margin-bottom: 0.5rem; }
+.pi img { flex: 0 0 118px; width: 118px; height: auto; border-radius: 6px; display: block; }
+.pi .pn { font-weight: 600; }
+
+.plain { list-style: none; margin: 0; padding: 0; }
+.plain li { margin-bottom: 0.45rem; }
+
+.sel { display: flex; gap: 1.15rem; margin-bottom: 1.5rem; }
+.sel .media { flex: 0 0 158px; }
+.sel .media img, .sel .media video { width: 158px; aspect-ratio: 4 / 3; object-fit: contain; display: block; border: 1px solid var(--thumb-border); border-radius: 4px; background: #fff; }
+.sel .pt { font-weight: 600; line-height: 1.4; }
+.sel .pa { font-size: 0.88rem; color: var(--muted); margin: 0.15rem 0 0; }
+.sel .pd { font-size: 0.94rem; margin: 0.35rem 0 0; }
+
+footer { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .sel { gap: 0.9rem; }
+  .sel .media { flex-basis: 116px; }
+  .sel .media img, .sel .media video { width: 116px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker sans">Bar-Ilan University &middot; Department of Computer Science and Artificial Intelligence</p>
+  <h1>The Multimodal Lab</h1>
+  <p class="lead">Multimodal generative models, attention, and inference-time control.<br>
+  <span class="muted">Led by <a href="https://idansc.github.io/">Idan Schwartz</a>.</span></p>
+</header>
+
+<nav class="sans">
+  <a href="#about">About</a><span class="sep">·</span>
+  <a href="#people">People</a><span class="sep">·</span>
+  <a href="#highlights">Highlights</a><span class="sep">·</span>
+  <a href="#join">Join us</a><span class="sep">·</span>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <p style="margin-top:1.6rem">We study how models combine vision, language, audio, and video, with a focus on generation. A recurring theme is attention: designing attention modules that fuse many modalities, and using the attention of large generative models as a handle to control what they produce, without retraining. We also draw on cognitive science, asking how perception and comprehension arise in multimodal models.</p>
+  <p>Current directions include:</p>
+  <ul class="themes">
+    <li>Attention guidance in diffusion models: controlling timing, counts, and subject identity in generated images and videos</li>
+    <li>Fusing modalities with frozen foundation models</li>
+    <li>Attention modules and pooling for multimodal fusion and retrieval</li>
+    <li>Measuring perceptiveness and comprehension of multimodal models</li>
+  </ul>
+</section>
+
+<section id="people">
+  <h2>People</h2>
+
+  <div class="pi">
+    <img src="img/idan.jpg" alt="Idan Schwartz">
+    <div>
+      <div class="pn"><a href="https://idansc.github.io/">Idan Schwartz</a></div>
+      <p class="pa sans muted" style="margin:0.15rem 0 0">Principal Investigator<br>Assistant Professor, Bar-Ilan University</p>
+    </div>
+  </div>
+
+  <h3>PhD students</h3>
+  <ul class="plain">
+    <li>Ben Fishman <span class="muted">(joint with Gal Chechik)</span></li>
+  </ul>
+
+  <h3>MSc students</h3>
+  <ul class="plain">
+    <li>Gilad Carmel</li>
+    <li>Mark Vexler</li>
+    <li>Uriel Dolev <span class="muted">(joint with Yoav Goldberg)</span></li>
+    <li>Amit Ronen</li>
+    <li>Aviv Weidenfeld</li>
+    <li>Omri Keren</li>
+    <li>Binyamin Ramati</li>
+    <li>Yona Orunov</li>
+    <li>Yuval Cohen</li>
+  </ul>
+
+  <h3>Alumni</h3>
+  <ul class="plain">
+    <li>Shira Schiber <span class="muted">(joint with Ofir Lindenbaum)</span> &middot; <a href="https://arxiv.org/abs/2510.02226"><em>TempoControl</em>, CVPR 2026</a></li>
+    <li>Yair Shpitzer <span class="muted">(joint with Gal Chechik)</span> &middot; <a href="https://arxiv.org/abs/2503.16025"><em>SISO</em>, CVPR 2026 Workshop</a></li>
+  </ul>
+</section>
+
+<section id="highlights">
+  <h2>Highlights</h2>
+
+  <div class="sel">
+    <div class="media"><video src="img/tempocontrol.mp4" poster="img/tempocontrol.jpg" autoplay loop muted playsinline preload="metadata" aria-label="TempoControl teaser"></video></div>
+    <div>
+      <div class="pt"><a href="https://shira-schiber.github.io/TempoControl/">TempoControl: Temporal Attention Guidance for Text-to-Video Models</a></div>
+      <p class="pa sans">S. Schiber, O. Lindenbaum, I. Schwartz &middot; CVPR 2026</p>
+      <p class="pd">Steers cross-attention so concepts appear at the right moment in a generated video, without retraining.</p>
+    </div>
+  </div>
+
+  <div class="sel">
+    <div class="media"><img src="img/countopt.jpg" alt="Detection-driven object count teaser" loading="lazy"></div>
+    <div>
+      <div class="pt"><a href="https://ozzafar.github.io/count_token/">Detection-Driven Object Count Optimization for Text-to-Image Diffusion Models</a></div>
+      <p class="pa sans">O. Zafar, Y. Cohen, L. Wolf, I. Schwartz &middot; WACV 2026</p>
+      <p class="pd">Optimizes a reusable counting token with detector feedback so generated images contain the requested number of objects.</p>
+    </div>
+  </div>
+
+  <div class="sel">
+    <div class="media"><img src="img/siso.jpg" alt="SISO teaser" loading="lazy"></div>
+    <div>
+      <div class="pt"><a href="https://siso-paper.github.io/">Single Image Iterative Subject-driven Generation and Editing</a></div>
+      <p class="pa sans">Y. Shpitzer, G. Chechik, I. Schwartz &middot; P13N Workshop, CVPR 2026</p>
+      <p class="pd">Personalizes a diffusion model from a single subject image, iterating between generation and editing.</p>
+    </div>
+  </div>
+
+  <p class="muted">A complete publication list is on <a href="https://idansc.github.io/#publications">Idan&rsquo;s page</a>.</p>
+</section>
+
+<section id="join">
+  <h2>Join us</h2>
+  <p>We are looking for MSc and PhD students who are excited about multimodal generative models. Strong candidates usually have solid coding skills, some background in deep learning, and curiosity about how large models work. If that sounds like you, <a href="mailto:idanschwartz@gmail.com">email Idan</a> with your CV, transcripts, and a short note on what you would like to work on.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p><a href="mailto:idanschwartz@gmail.com">idanschwartz@gmail.com</a></p>
+  <p>Department of Computer Science and Artificial Intelligence, Room 213<br>
+  Building 503, Bar-Ilan University<br>
+  Ramat Gan, Israel &nbsp;<span class="sans" style="font-size:0.85rem"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Bar-Ilan+University+Building+503+Ramat+Gan">directions</a></span></p>
+</section>
+
+<footer>
+  The Multimodal Lab &middot; Bar-Ilan University &middot; <a href="https://idansc.github.io/">Idan Schwartz</a>
+</footer>
+
+</div>
+</body>
+</html>
