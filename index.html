@@ -47,6 +47,8 @@
   --pill: #e2eeea;
   --rule: #e4e7e4;
   --card-shadow: 0 6px 18px rgba(14, 110, 98, 0.08);
+  --scrim-a: rgba(250, 252, 251, 0.72);
+  --scrim-b: rgba(250, 252, 251, 0.90);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -58,6 +60,8 @@
     --pill: #1d312c;
     --rule: #293029;
     --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    --scrim-a: rgba(20, 24, 23, 0.72);
+    --scrim-b: rgba(20, 24, 23, 0.90);
   }
 }
 * { box-sizing: border-box; }
@@ -78,7 +82,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
 section { scroll-margin-top: 1.5rem; }
 
-.band { background: linear-gradient(180deg, var(--band) 0%, var(--bg) 100%); border-bottom: 1px solid var(--rule); padding: 3rem 0 0; }
+.band { position: relative; background: url("img/grass-building.jpg") center 30% / cover no-repeat; padding: 4.2rem 0 0; }
+.band::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--scrim-a) 0%, var(--scrim-b) 55%, var(--bg) 96%); }
+.band .wrap { position: relative; }
 .kicker { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 1rem; }
 .mark { color: var(--link); display: block; margin-bottom: 0.9rem; }
 h1 { font-size: 2.35rem; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 0.55rem; }
@@ -158,11 +164,6 @@ footer { margin-top: 3.5rem; padding: 1rem 0 3rem; border-top: 1px solid var(--r
   </div>
 </div>
 
-<figure class="bleed photo">
-  <img src="img/grass-building.jpg" alt="The Alexander Grass Computer Science Building at Bar-Ilan University" width="1240" height="845">
-  <figcaption class="sans">Our home: the Alexander Grass Computer Science Building, Bar-Ilan University.</figcaption>
-</figure>
-
 <div class="wrap">
 
 <section id="about">
@@ -175,6 +176,9 @@ footer { margin-top: 3.5rem; padding: 1rem 0 3rem; border-top: 1px solid var(--r
   <div class="rcards">
     <div class="rcard"><b>Multimodal attention</b><p class="sans">Attention modules and pooling that fuse vision, language, audio, and video.</p></div>
     <div class="rcard"><b>Inference-time optimization</b><p class="sans">Guidance, search, and learned tokens that steer frozen generative models.</p></div>
+    <div class="rcard"><b>Efficient generative training</b><p class="sans">Representation learning that lets generative models reach faithfulness to data with less compute.</p></div>
+    <div class="rcard"><b>Data-efficient learning</b><p class="sans">Selecting and pruning training data through representations, so understanding and generation improve together.</p></div>
+    <div class="rcard"><b>Self-evolving models</b><p class="sans">Models that keep improving after deployment as distributions shift, with test-time training and tool use.</p></div>
     <div class="rcard"><b>Physical AI</b><p class="sans">Generative and world models for agents acting in the physical world.</p></div>
     <div class="rcard"><b>Embodied agents</b><p class="sans">Perception, navigation, and action in interactive environments.</p></div>
     <div class="rcard"><b>Visual reasoning</b><p class="sans">Models that answer, explain, and think over images and video.</p></div>
